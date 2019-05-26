@@ -1,0 +1,127 @@
+#gradient {
+    background-image: linear-gradient(rgb(250, 255, 255), #00001f);
+    height: 75px
+}
+
+html, #solution {
+    background-color: rgb(250, 255, 255);
+}
+
+#solution {
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+
+#heading {
+    padding: 30px 0;
+}
+
+#light {
+    background-color: aliceblue;
+}
+
+#light h1, #light h6, #light h4, #light p {
+    color: #00001f;
+}
+
+#dark {
+    background-color: #00001f;
+}
+
+#dark h4, #dark p {
+    color: rgb(250, 255, 255);
+}
+
+#solution h4, #solution p {
+    color: #00001f;
+}
+
+div {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#perception {
+    display: block;
+    max-width: 100%;
+    max-height: 75vh;
+    margin: 0 auto;
+}
+
+.graphic {
+    display: block;
+    max-height: 80vh;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+    margin: 0 10px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 20px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#perception-switch {
+    display: block;
+    margin: auto;
+    margin-bottom: 3vh;
+    text-align: center;
+}
