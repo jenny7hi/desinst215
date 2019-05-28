@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>This is water.</title>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel = "stylesheet"
           type = "text/css"
           href = "style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 <div id="light">
@@ -16,7 +19,7 @@
             <div class="col-8">
                 <div id="heading">
                     <h1>This is water.</h1>
-                    <h6>Caroline Condon, Sabine Loos, and Jenny Zhi</h6>
+                    <h6>by Caroline Condon, Sabine Loos, and Jenny Zhi</h6>
                     <h6>DESINST 215: The Design of Data (Spring 2019)</h6>
                 </div>
                 <div class="content">
@@ -26,16 +29,15 @@
                         <p>Explanation of perception & reality data. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac venenatis enim. Sed sed ligula vel leo semper aliquam sit amet dictum elit. Fusce interdum elementum porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed sit amet fermentum metus. Fusce non interdum ante. Aliquam erat volutpat. Nunc sit amet cursus ipsum, sit amet finibus felis. Suspendisse condimentum ex a tempus mattis. Nam pretium convallis lorem ut ultrices. Duis volutpat augue sit amet pellentesque commodo. Nulla pharetra dapibus purus, nec pellentesque erat.</p>
                         <div class="graphic">
                             <div id="perception-switch">
-                                <div>
-                                    perception
-                                    <label class="switch">
-                                        <input type="checkbox">
-                                        <span class="slider round"></span>
-                                    </label>
-                                    reality
-                                </div>
+                                <label class="toggle-label" id="toggle-label-p">Water Quality Perception</label>
+                                <label class="switch" >
+                                    <input type="checkbox">
+                                    <span class="slider round" onclick="toggle()"></span>
+                                </label>
+                                <label class="toggle-label" id="toggle-label-r">Reality of Violations</label>
                             </div>
-                            <img src="graphics/perception.png" id="perception"/>
+                            <img src="graphics/perception.png" class="graphic" id="perception"/>
+                            <img src="graphics/violations.png" class="graphic" id="reality"/>
                         </div>
                     </div>
                 </div>
@@ -51,12 +53,34 @@
     <div class="container">
         <div class="row">
             <div class="col"></div>
-            <div class="col-8">
+            <div class="col-5" data-aos="fade-up">
+                <p style="text-align:center">Water Quality Perception</p>
+                <img src="graphics/perception_highlighted.png" style="width:100%"/>
+            </div>
+            <div class="col"></div>
+            <div class="col-5" data-aos="fade-up">
+                <p style="text-align:center">Reality of Violations</p>
+                <img src="graphics/violations_highlighted.png" style="width:100%"/>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-7">
+                <p style="font-size: 14px">(1) At first glance, San Joaquin county, home to California’s lowest expected confidence in drinking water at ~80% appears to actually have fairly safe tap access, with only 1.62% of the county’s 726,106 residents served by a system with a reportable water quality violation. However, water quality in the Central Valley including San Joaquin county, has been a growing area of concern for residents, given the region’s high risk of agricultural contamination (tellingly, 22 of San Joaquin County’s reported 57 violations concerned nitrate levels, a contaminant linked to use of chemical fertilizers). High rates of naturally-occuring arsenic also affect both public water systems, and the 10% of San Joaquin residents who use private wells. Neighboring Stanislaus County’s high rate of violations (21.74% affected) also reflects the regions’ difficulties with water supply, and may contribute to lack of trust among San Joaquin county residents. Given the elevated likelihood that residents may not trust their tap water, as well as the potential for problems, water systems in this area should invest in extra monitoring and testing, clearly communicating the results to residents to both alleviate concern and reduce the risk that residents take on the financial burden of purchasing bottled water, and to ensure that all actual quality violations are identified and remedied as quickly as possible.
+                </p>
+            </div>
+            <div class="col"></div>
+            <div class="col-4">
+                <p style="font-size: 14px">(2) On the other side, our demographic predictive model indicates residents of Santa Clara, Amador and Madera counties are likely to trust their tap water. However, more than 50% of residents in all 3 counties are served by water systems with at least one reportable quality violation in 2017. Therefore, water systems and public regulators in these areas should be particularly careful to communicate violations to their populations, and make sure all residents understand when the tap water should not be drunk, or what processing is necessary. </p>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-8" data-aos="fade-up">
                 <div class="content">
                     <div >
-                        <!-- graphic goes here -->
-                        <p>[violations detailed graphic here]</p>
-                        <p>Pointing out some specific violations -- and raising questions. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac venenatis enim. Sed sed ligula vel leo semper aliquam sit amet dictum elit. Fusce interdum elementum porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed sit amet fermentum metus. Fusce non interdum ante. Aliquam erat volutpat. Nunc sit amet cursus ipsum, sit amet finibus felis. Suspendisse condimentum ex a tempus mattis. Nam pretium convallis lorem ut ultrices. Duis volutpat augue sit amet pellentesque commodo. Nulla pharetra dapibus purus, nec pellentesque erat.</p>
                         <h4>Why does perception matter?</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac venenatis enim. Sed sed ligula vel leo semper aliquam sit amet dictum elit. Fusce interdum elementum porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed sit amet fermentum metus. Fusce non interdum ante. Aliquam erat volutpat. Nunc sit amet cursus ipsum, sit amet finibus felis. Suspendisse condimentum ex a tempus mattis. Nam pretium convallis lorem ut ultrices. Duis volutpat augue sit amet pellentesque commodo. Nulla pharetra dapibus purus, nec pellentesque erat.</p>
                         <p>[water bottle graphics here]</p>
@@ -72,7 +96,7 @@
     <div class="container">
         <div class="row">
             <div class="col"></div>
-            <div class="col-8">
+            <div class="col-8" data-aos="fade-up">
                 <div class="content">
                     <div>
                         <h4>How can we address perception?</h4>
@@ -93,3 +117,7 @@
 
 </body>
 </html>
+
+<script>
+    AOS.init();
+</script>

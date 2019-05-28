@@ -1,6 +1,6 @@
 #gradient {
-    background-image: linear-gradient(rgb(250, 255, 255), #00001f);
-    height: 75px
+    background-image: linear-gradient(aliceblue, #00001f);
+    height: 100px
 }
 
 html, #solution {
@@ -48,6 +48,17 @@ div {
     margin: 0 auto;
 }
 
+#reality {
+    display: none;
+    max-width: 100%;
+    max-height: 75vh;
+    margin: 0 auto;
+}
+
+#toggle-label-r {
+    color: lightgray;
+}
+
 .graphic {
     display: block;
     max-width: 100%;
@@ -59,7 +70,6 @@ div {
 /* The switch - the box around the slider */
 .switch {
     position: relative;
-    display: inline-block;
     width: 35px;
     height: 20px;
     margin: 0 10px;
@@ -80,7 +90,7 @@ div {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: lightgray;
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -98,11 +108,11 @@ div {
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: lightgray;
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px lightgray;
 }
 
 input:checked + .slider:before {
