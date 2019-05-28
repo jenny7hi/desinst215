@@ -3,7 +3,7 @@
     height: 100px
 }
 
-html, #solution {
+html, #solution, #footnotes {
     background-color: rgb(250, 255, 255);
 }
 
@@ -21,7 +21,7 @@ h6 {
 
 #solution {
     padding-top: 20px;
-    padding-bottom: 80px;
+    padding-bottom: 30px;
 }
 
 #heading {
@@ -44,12 +44,23 @@ h6 {
     color: rgb(250, 255, 255);
 }
 
-#dark p, #dark h5 {
+#dark p, #dark h5, #dark h6 {
     color: rgb(233, 238, 238);
+    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 #solution h4, #solution p {
     color: #00001f;
+}
+
+#footnotes p {
+    font-size: 12px;
+    color: #687c80;
+}
+
+#footnotes {
+    height: 100vh;
 }
 
 div {
