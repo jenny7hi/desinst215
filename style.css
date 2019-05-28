@@ -7,11 +7,11 @@ html, #solution {
     background-color: rgb(250, 255, 255);
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     font-family: 'Ramabhadra', sans-serif;
 }
 
-h5, h6, p, label {
+h6, p, label {
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -28,7 +28,7 @@ h5, h6, p, label {
     background-color: aliceblue;
 }
 
-#light h1, #light h6, #light h4, #light p {
+#light h1, #light h6, #light h3, #light p {
     color: #00001f;
 }
 
@@ -36,8 +36,12 @@ h5, h6, p, label {
     background-color: #00001f;
 }
 
-#dark h4, #dark p {
+#dark h3 {
     color: rgb(250, 255, 255);
+}
+
+#dark p, #dark h5 {
+    color: rgb(233, 238, 238);
 }
 
 #solution h4, #solution p {
