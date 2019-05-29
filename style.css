@@ -3,7 +3,7 @@
     height: 100px
 }
 
-html, #solution, #footnotes {
+html, #solution, #about {
     background-color: rgb(250, 255, 255);
 }
 
@@ -21,7 +21,11 @@ h6 {
 
 #solution {
     padding-top: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 3px;
+}
+
+a {
+    color: cornflowerblue;
 }
 
 #heading {
@@ -40,18 +44,26 @@ h6 {
     background-color: #00001f;
 }
 
-#dark h3 {
+#dark h3, #dark h2, #dark h4 {
     color: rgb(250, 255, 255);
 }
 
 #dark p, #dark h5, #dark h6 {
-    color: rgb(233, 238, 238);
+    color: rgb(241, 246, 246);
     margin-bottom: 20px;
     margin-top: 30px;
 }
 
 #solution h4, #solution p {
     color: #00001f;
+}
+
+#about p {
+    font-size: 13px;
+}
+
+#about {
+    padding-bottom: 60px;
 }
 
 #footnotes p {
@@ -89,9 +101,17 @@ div {
 .graphic {
     display: block;
     max-width: 100%;
-    max-height: 80vh;
-    margin-top: 5vh;
-    margin-bottom: 10vh;
+    max-height: 90vh;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+
+.people p {
+    font-size: 13px;
+}
+
+.collapse-text {
+    font-size: 13px;
 }
 
 /* The switch - the box around the slider */
@@ -160,6 +180,6 @@ input:checked + .slider:before {
 #perception-switch {
     display: block;
     margin: auto;
-    margin-bottom: 3vh;
+    margin-top: 3vh;
     text-align: center;
 }
