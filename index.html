@@ -26,8 +26,9 @@
                 </div>
                 <div class="content">
                     <div >
-                        <p>Chances are, you don’t know where your water comes from. Yet, you probably have an opinion about the quality of your water — maybe everybody else around you drinks tap water, so you assume it’s safe, or maybe it’s common knowledge that you shouldn’t be drinking the tap water, or maybe you know there’s a risk drinking from the tap, but you haven’t died yet, so you might as well continue. </p>
-                        <p>Public perception of tap water quality is crucial for public water suppliers and policymakers. But does this perception reliably map to true water quality? Not always. One 2017 study conducted in Canada found that there was no association (<a href="https://www.sciencedirect.com/science/article/pii/S0013935117312653" target="_blank">Ochoo</a>) —  but in California, perception and reality seem to almost be inversely associated. Understanding the public’s perception of water quality can help public water systems target their outreach and communications strategies to the people they serve. </p>
+                        <p><b>Chances are, you don’t know where your water comes from.</b> Yet, you probably have an opinion about the quality of your water. Maybe everybody else around you drinks tap water, so you assume it’s safe. Or maybe it’s common knowledge that you shouldn’t be drinking the tap water, so you only drink filtered water. Or maybe you know there’s a risk drinking from the tap, but you haven’t died yet, so you might as well continue.</p>
+                        <p>Public perception of tap water quality is crucial for public water suppliers and policymakers. <b>But does this perception reliably map to true water quality? Not always.</b> One 2017 study conducted in Canada found that there was no association (<a href="https://www.sciencedirect.com/science/article/pii/S0013935117312653" target="_blank">Ochoo, 2017</a>)</p>
+                        <p>In California, perception and reality seem to almost be inversely associated. Here we map California’s perception of water quality in 2018, based on a study that found certain US population groups —  like those in minority groups or without a high school degree — are more likely to perceive their water as unsafe (<a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017WR022186" target="_blank">Javidi, 2018</a>).  <b>Understanding the public’s perception of water quality can help public water systems target their outreach and communications strategies to the people they serve.</b></p>
                         <h5>Where are people likely to trust the tap... and where do water quality violations occur?</h5>
                         <div class="graphic">
                             <div id="perception-switch">
@@ -49,9 +50,11 @@
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
                                 <h6 class="collapse-text">Water Quality Perception</h6>
-                                <p class="collapse-text">Based on data from the 2015 American Housing Survey (AHS), researchers at Amherst College and UCLA identified sociodemographic factors that influence individuals’ perception of tap water (<a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017WR022186" target="_blank">Javidi</a>). The Census Bureau releases individual responses to the questionnaire, which contains multiple demographic factors and a yes or no question on whether a respondent thinks their tap water is safe. However, the dataset does not identify the county for each AHS respondent, so we instead developed our own model using this data for the water quality perception for each county in California. In this model, we essentially build “fake counties” by sampling responses in the survey so they match each county’s demographics that were shown in the report to influence an individual’s perception of water safety — things like ethnicity, homeownership, or education. The code for this model is included <a href="code.html" target="_blank">here</a>. Here, water quality perception is based on these demographics. The results of this model could be improved in the future, since it is slow to converge and still has error remaining.</p>
+                                <p class="collapse-text">Based on data from the 2015 American Housing Survey (AHS), researchers at Amherst College and UCLA identified sociodemographic factors that influence individuals’ perception of tap water (<a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017WR022186" target="_blank">Javidi, 2018</a>). The Census Bureau releases individual responses to the questionnaire, which contains multiple demographic factors and a yes or no question on whether a respondent thinks their tap water is safe. If we knew the counties of each AHS respondent, we would be able to map these responses directly, however, the government does not release any personally identifiable data with these responses to protect individuals’ privacy.</p>
+                                <p class="collapse-text">Instead, we developed our own model using the AHS data to estimate water quality perception for each county in California. In this model, we essentially build “fake counties” by sampling responses in the survey. We sample the AHS survey until the fake county matches the county’s true demographics on a set of sociodemographic characteristics that were shown in the report to influence an individual’s perception of water safety— things like ethnicity, homeownership, or education. Therefore, water quality perception in this map is based on these demographics.</p>
+                                <p class="collapse-text">The code for this model is included <a href="code.html" target="_blank">here</a>. This method is extremely similar to Monte Carlo simulation, since we are attempting to rebuild a moment of a distribution of county demographics through random sampling. Monte Carlo simulation can be flawed, because it is slow to converge and the final distribution may not match the true distribution (even if the moments do) (<a href="https://www.autodeskresearch.com/publications/samestats" target="_blank">link for more information</a>). This model provides a sufficient first pass at California’s perception of water quality (with some uncertainty), but could be improved in the future to include the uncertainty or reach convergence at a quicker rate.</p>
                                 <h6 class="collapse-text">Water Quality Violations</h6>
-                                <p class="collapse-text">Source: California Water Boards, 2017 Annual Compliance Report for Public Water Systems. This data set contains information about all reportable non-compliance events in a public water system, as well as the population served by the affected water system. % of population affected by at least one water quality violation was calculated by summing the total population served by each water system with at least one violation, divided by the total population of the county. Alpine County (pop. 1120) was removed, as the Annual Compliance Report indicates that the Bear Creek (pop. 290) water system serves 2650 individuals, suggesting that 237% of the population was affected. Note that this graph does not reflect water quality problems experienced by people served by private well or other non-public water system, as well as water quality issues or potential contaminants that do not fall under state reporting requirements.</p>
+                                <p class="collapse-text">Source: California Water Boards, 2017 Annual Compliance Report for Public Water Systems. This data set contains information about all reportable non-compliance events in a public water system, as well as the population served by the affected water system. Percentage of population affected by at least one water quality violation was calculated by summing the total population served by each water system with at least one violation, divided by the total population of the county. Alpine County (pop. 1120) was removed, as the Annual Compliance Report indicates that the Bear Creek (pop. 290) water system serves 2650 individuals, suggesting that 237% of the population was affected. Note that this graph does not reflect water quality problems experienced by people served by private well or other non-public water system, as well as water quality issues or potential contaminants that do not fall under state reporting requirements.</p>
                             </div>
                         </div>
                     </div>
@@ -73,28 +76,23 @@
                     <div >
                         <h2>So why does perception matter?</h2>
                         <h4>It’s not about water bottle sales.</h4>
-                        <p>Given the ecological impact of single-use plastic water bottles, it would be great if improving the public water supply would reduce water bottled purchases. Unfortunately, our analysis shows that’s unlikely to occur — in fact, there is no correlation between water bottle sales in a county, and the percent of the population that is likely to trust their tap water.</p>
+                        <p>Given the ecological impact of single-use plastic water bottles, it would be great if improving the public’s perception of water quality would reduce water bottled purchases. Unfortunately, our analysis shows that’s unlikely to occur — in fact, there is little to no correlation between water bottle sales in a county, and the percent of the population that is likely to trust their tap water. This implies that people’s decision to purchase water bottles is most likely based on more than whether or not they think their home drinking water is safe.
+                        </p>
                         <br/>
                         <h6>Lack of trust in tap water isn’t driving bottled water sales</h6>
                         <img src="graphics/scatter_perception.png" class="graphic"/>
                         <h4>But it is about people.</h4>
-                        <p>Discrepancies between public perception and actual safety of tap water can have serious repercussion for residents. Consider these counties where public perception and known water quality violations diverge:</p>
+                        <p>Discrepancies between public perception and the reality of tap water safety can have serious repercussion for residents. Consider these counties where public perception and known water quality violations diverge:</p>
+                        <h6>Low perception, few violations</h6>
+                        <img src="graphics/san-joaquin.png" class="graphic" />
+                        <p><b>San Joaquin</b> county residents are least likely to consider their home’s tap water to be safe to drink — yet the county appears have fairly safe tap access, with only 1.62% of the county’s 726,106 residents served by a system with a reportable water quality violation. To reduce the risk of these residents feeling unnecessarily pushed into buying pricey bottled water — or worse, the emotional impact of feeling that they and their families are drinking contaminated water — public water system officials should be proactive about performing regular testing and communicating the results to residents to build confidence in the public supply.</p>
+                        <h6>High perception, many violations</h6>
+                        <img src="graphics/amador.png" class="graphic" />
+                        <p>Counties like <b>Santa Clara, Amador, and Madera</b> have the opposite discrepancy — residents likely to trust the tap, but more than 50% of the population were served by water systems with at least one reportable quality violation in 2017, raising the risk that people may actually be drinking unsafe water. Therefore, when water quality issues arise in these areas, public regulators in these areas should be aware that the population is likely to possess a high baseline degree of trust in the system — and therefore be particularly clear in communicating when the tap is unsafe to drink, and what protective measures individuals should take.</p>
                     </div>
                 </div>
             </div>
             <div class="col"></div>
-        </div>
-        <div class="row">
-            <div class="col people">
-                <h6>Low perception, few violations</h6>
-                <img src="graphics/san-joaquin.png" class="graphic" />
-                <p><b>San Joaquin</b> county residents are least likely to consider their home’s tap water to be safe to drink - yet the county appears have fairly safe tap access, with only 1.62% of the county’s 726,106 residents served by a system with a reportable water quality violation. To reduce the risk of these residents feeling unnecessarily pushed into buying pricey bottled water — or worse, the emotional impact of feeling that they and their families are drinking contaminated water — public water system officials should be proactive about performing regular testing and communicating the results to residents to build confidence in the public supply.</p>
-            </div>
-            <div class="col people">
-                <h6>High perception, many violations</h6>
-                <img src="graphics/amador.png" class="graphic" />
-                <p>Counties like <b>Santa Clara, Amador, and Madera</b> have the opposite discrepancy — residents likely to trust the tap, but more than 50% of the population were served by water systems with at least one reportable quality violation in 2017, raising the risk that people may actually be drinking unsafe water. Therefore, when water quality issues arise in these areas, public regulators in these areas should be aware that the population is likely to possess a high baseline degree of trust in the system — and therefore be particularly clear in communicating when the tap is unsafe to drink, and what protective measures individuals should take. </p>
-            </div>
         </div>
 <br/>
     </div>
@@ -106,19 +104,38 @@
             <div class="col-8" data-aos="fade-up">
                 <div class="content">
                     <div>
-                        <h3>How can my city understand perceptions of water quality?</h3>
-                        <p>The question addressing perception of water quality was asked once as a rotating question in the American Housing Survey, and is our only concrete hint as to what people are feeling about their water quality. More often than not, we don’t have this data.  One proxy through which cities can do so is search popularity.</p>
+                        <h3>How can my city understand perceptions of water quality in the future?</h3>
+                        <p>The question addressing perception of water quality was asked once as a rotating question in the American Housing Survey, and is our only concrete hint as to what people are feeling about their water quality. More often than not, water systems officials won’t have this data — so where can they look for insight into their constituents’ perception of their tap water quality?</p>
+                        <p>One possibility is monitoring google search results. We looked at the relationship between google searches for water quality related terms and public perception of water quality in 14 metropolitan areas in California.</p>
+                        <p>Through in-depth, human-centered interviews, we identified three main ways people approach the question of their own confidence in their tap water, which align with what we see from our Google search analysis.  This mapping can serve as a starting point for water systems officials interested in understanding perceptions in their own community in the future. Going forward, where would you place your community?</p>
                         <br/>
                         <h6>Search activity can predict perception</h6>
                         <img src="graphics/search.png" class="graphic">
-                        <p>This chart maps search popularity of water quality related terms, such as “water quality,” “drinking water,” and “water purification,” (Google Trends) to our safety perception percentages for fourteen metro areas that cover California. The higher proportion of all searches a term takes up, the higher search popularity score it has. All counties fall within one of the metro areas. </p>
-                        <p>Excluding the three metro areas on the left side of the chart (Medford-Klamath Falls, Reno, and El Centro), the more people search for water quality related terms, the more trust they have in their water quality. As for the three outliers, they are the metro areas with the lowest populations, and may be more heavily populated by rural residents, who tend to be more knowledgeable about their water and therefore have greater trust in their water quality (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4948862/" target="_blank">Dean</a>).</p>
-                        <p>Cities can use this search popularity information to monitor how their residents perceive the quality of their water. Depending on whether or not that perception matches with the reality of the situation, they can then decide how to modify or improve related communication to address the discrepancy.</p>
+                        <p class="collapse-text">
+                            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                How was this made?
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <p class="collapse-text">This chart maps search popularity of water quality related terms, such as “water quality,” “drinking water,” and “water purification,” (Google Trends) to our safety perception percentages for fourteen metro areas that cover California. The higher proportion of all searches a term takes up, the higher search popularity score it has. All counties fall within one of the metro areas.</p>
+                            </div>
+                        </div>
                         <br/>
-                        <hr/>
-                        <br/>
+                        <h3>“Not having this information seems a little funny”</h3>
                         <p>When asked about why he thinks his water is safe to drink, one of our interviewees was at a loss for words. He didn’t know. “Not having this information seems a little funny.” Currently, perception and reality don’t seem to match up, and this is often the fault of poor communication. It will never hurt to have increased trust, transparency, and knowledge about water quality, and tackling perception — or the inaccuracy of it — is the first step. </p>
-                    </div>
+                        <br/>
+                        <p class="collapse-text">
+                            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                References
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <p class="collapse-text">Javidi, A., & Pierce, G. (2018). U.S. households’ perception of drinking water as unsafe and its consequences: Examining alternative choices to the tap*. Water Resources Research, 54, 6100–6113. <a href="https://doi.org/10.1029/2017WR022186" target="_blank">https://doi.org/10.1029/2017WR022186</a></p>
+                                <p class="collapse-text">Ochoo, B., Valcour, J., & Sarkar, A. (2017). Association between perceptions of public drinking water quality and actual drinking water quality: A community-based exploratory study in Newfoundland (Canada). <i>Environmental Research</i>, 159, 435-443. doi:10.1016/j.envres.2017.08.019</p>
+                            </div>
+                        </div>                    </div>
                 </div>
             </div>
             <div class="col"></div>
@@ -136,8 +153,7 @@
                 <h5>Who are we?</h5>
                 <p><b>Caroline Condon</b> is a mechanical engineer and a master’s student in Stanford’s Design Impact. She grew up in peri-urban Oregon, and has lived in suburban Massachusetts, Palo Alto, Kumasi, and Bamako, and primarily drinks tap water.
                 </p>
-                <p><b>Sabine Loos</b> is
-                </p>
+                <p><b><a href="https://www.sabine-loos.com" target="_blank">Sabine Loos</a></b> is a Stanford Ph.D. student studying disaster resilience. She has lived domestically in urban areas, including San Francisco, CA and Cincinnati, OH, so has depended on tap water for drinking. However, she is aware of water accessibility issues from time spent abroad in countries where drinking water is only available in truck-delivered water jugs.</p>
                 <p><b>Jenny Zhi</b> is a Stanford undergraduate studying symbolic systems. She grew up less than an hour away from Flint, Michigan, yet has never had reason to worry about the safety of her own water.
             </p>
             </div>
