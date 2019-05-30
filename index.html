@@ -52,7 +52,7 @@
                                 <h6 class="collapse-text">Water Quality Perception</h6>
                                 <p class="collapse-text">Based on data from the 2015 American Housing Survey (AHS), researchers at Amherst College and UCLA identified sociodemographic factors that influence individuals’ perception of tap water (<a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017WR022186" target="_blank">Javidi, 2018</a>). The Census Bureau releases individual responses to the questionnaire, which contains multiple demographic factors and a yes or no question on whether a respondent thinks their tap water is safe. If we knew the counties of each AHS respondent, we would be able to map these responses directly, however, the government does not release any personally identifiable data with these responses to protect individuals’ privacy.</p>
                                 <p class="collapse-text">Instead, we developed our own model using the AHS data to estimate water quality perception for each county in California. In this model, we essentially build “fake counties” by sampling responses in the survey. We sample the AHS survey until the fake county matches the county’s true demographics on a set of sociodemographic characteristics that were shown in the report to influence an individual’s perception of water safety— things like ethnicity, homeownership, or education. Therefore, water quality perception in this map is based on these demographics.</p>
-                                <p class="collapse-text">The code for this model is included <a href="code.html" target="_blank">here</a>. This method is extremely similar to Monte Carlo simulation, since we are attempting to rebuild a moment of a distribution of county demographics through random sampling. Monte Carlo simulation can be flawed, because it is slow to converge and the final distribution may not match the true distribution (even if the moments do) (<a href="https://www.autodeskresearch.com/publications/samestats" target="_blank">link for more information</a>). This model provides a sufficient first pass at California’s perception of water quality (with some uncertainty), but could be improved in the future to include the uncertainty or reach convergence at a quicker rate.</p>
+                                <p class="collapse-text">The code for this model is included <a href="https://sabineloos.github.io/DP3-water/DP3-cag1-final.html" target="_blank">here</a>. This method is extremely similar to Monte Carlo simulation, since we are attempting to rebuild a moment of a distribution of county demographics through random sampling. Monte Carlo simulation can be flawed, because it is slow to converge and the final distribution may not match the true distribution (even if the moments do) (<a href="https://www.autodeskresearch.com/publications/samestats" target="_blank">link for more information</a>). This model provides a sufficient first pass at California’s perception of water quality (with some uncertainty), but could be improved in the future to include the uncertainty or reach convergence at a quicker rate.</p>
                                 <h6 class="collapse-text">Water Quality Violations</h6>
                                 <p class="collapse-text">Source: California Water Boards, 2017 Annual Compliance Report for Public Water Systems. This data set contains information about all reportable non-compliance events in a public water system, as well as the population served by the affected water system. Percentage of population affected by at least one water quality violation was calculated by summing the total population served by each water system with at least one violation, divided by the total population of the county. Alpine County (pop. 1120) was removed, as the Annual Compliance Report indicates that the Bear Creek (pop. 290) water system serves 2650 individuals, suggesting that 237% of the population was affected. Note that this graph does not reflect water quality problems experienced by people served by private well or other non-public water system, as well as water quality issues or potential contaminants that do not fall under state reporting requirements.</p>
                             </div>
@@ -112,11 +112,11 @@
                         <h6>Search activity can predict perception</h6>
                         <img src="graphics/search.png" class="graphic">
                         <p class="collapse-text">
-                            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <a data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 How was this made?
                             </a>
                         </p>
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse" id="collapse2">
                             <div class="card card-body">
                                 <p class="collapse-text">This chart maps search popularity of water quality related terms, such as “water quality,” “drinking water,” and “water purification,” (Google Trends) to our safety perception percentages for fourteen metro areas that cover California. The higher proportion of all searches a term takes up, the higher search popularity score it has. All counties fall within one of the metro areas.</p>
                             </div>
@@ -126,14 +126,15 @@
                         <p>When asked about why he thinks his water is safe to drink, one of our interviewees was at a loss for words. He didn’t know. “Not having this information seems a little funny.” Currently, perception and reality don’t seem to match up, and this is often the fault of poor communication. It will never hurt to have increased trust, transparency, and knowledge about water quality, and tackling perception — or the inaccuracy of it — is the first step. </p>
                         <br/>
                         <p class="collapse-text">
-                            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <a data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 References
                             </a>
                         </p>
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse" id="collapse3">
                             <div class="card card-body">
                                 <p class="collapse-text">Javidi, A., & Pierce, G. (2018). U.S. households’ perception of drinking water as unsafe and its consequences: Examining alternative choices to the tap*. Water Resources Research, 54, 6100–6113. <a href="https://doi.org/10.1029/2017WR022186" target="_blank">https://doi.org/10.1029/2017WR022186</a></p>
                                 <p class="collapse-text">Ochoo, B., Valcour, J., & Sarkar, A. (2017). Association between perceptions of public drinking water quality and actual drinking water quality: A community-based exploratory study in Newfoundland (Canada). <i>Environmental Research</i>, 159, 435-443. doi:10.1016/j.envres.2017.08.019</p>
+                                <p class="collapse-text">Code <a href="https://sabineloos.github.io/DP3-water/DP3-cag1-final.html" target="_blank">here</a>.</p>
                             </div>
                         </div>                    </div>
                 </div>
